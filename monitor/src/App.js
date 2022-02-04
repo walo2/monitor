@@ -107,6 +107,13 @@ function App() {
         setMaxTemp(-15);
         set(ref(db, 'max_temp'), maxTemp);
       }
+      if (preset === 5) {
+        setMinTemp(18);
+        set(ref(db, 'min_temp'), minTemp);
+
+        setMaxTemp(30);
+        set(ref(db, 'max_temp'), maxTemp);
+      }
       //Altera estado do monitoramento para ativo
       set(ref(db, 'monitoramento_ativo'), true);
       setIsOn(true);
@@ -213,6 +220,7 @@ function App() {
                   <MenuItem value={2}>Resfriado (&gt; 6°C, &lt; 10°C)</MenuItem>
                   <MenuItem value={3}>Refrigerado (&gt; 4°C, &lt; 6°C)</MenuItem>
                   <MenuItem value={4}>Congelado (&gt; -18°C, &lt; -15°C)</MenuItem>
+                  <MenuItem value={5}>Teste (&gt; 18°C, &lt; 30°C)</MenuItem>
                 </Select>
                 <div className="iniciar" onClick={handleIniciar} style={{ opacity: isOptionSelected ? '100%' : '20%' }}>
                   INICIAR
